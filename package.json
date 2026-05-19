@@ -1,0 +1,11 @@
+{
+    "name": "zycrypt-vue",
+    "version": "1.0.0",
+    "description": "ZyCrypt Vue plugin for Laravel + Vue + Inertia.js license protection",
+    "main": "src/index.js",
+    "type": "module",
+    "keywords": ["zycrypt", "license", "vue", "laravel", "inertia"],
+    "author": "Ziaul Kamal",
+    "license": "UNLICENSED",
+    "private": false
+}
