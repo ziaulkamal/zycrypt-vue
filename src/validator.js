@@ -1,22 +1,14 @@
 import { saveToken, loadToken, isInGrace, clearAll } from './storage.js';
 
-/**
- * Minta token dari Laravel proxy endpoint (/zycrypt/token).
- * Shared secret TIDAK ada di sini — signing dilakukan di server Laravel.
- *
- * @param {string} proxyUrl  - URL proxy (default: /zycrypt/token)
- * @param {number} graceHours
- * @returns {{ valid: boolean, token?: string, reason?: string }}
- */
 export async function requestToken(proxyUrl = '/zycrypt/token', graceHours = 24) {
     try {
         const response = await fetch(proxyUrl, {
             method:  'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Accept':       'application/json',
+                'Content-Type':     'application/json',
+                'Accept':           'application/json',
                 'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-TOKEN': getCsrfToken(),
+                'X-CSRF-TOKEN':     getCsrfToken(),
             },
         });
 
@@ -40,7 +32,6 @@ export async function requestToken(proxyUrl = '/zycrypt/token', graceHours = 24)
         };
 
     } catch (_) {
-        // Server tidak terjangkau — cek grace period
         if (isInGrace(graceHours)) {
             const cached = loadToken();
             if (cached) {
@@ -51,9 +42,6 @@ export async function requestToken(proxyUrl = '/zycrypt/token', graceHours = 24)
     }
 }
 
-/**
- * Invalidasi token lokal dan hapus storage.
- */
 export function invalidate() {
     clearAll();
 }

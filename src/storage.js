@@ -1,6 +1,6 @@
-const KEY_TOKEN      = 'zycrypt_token';
-const KEY_VALIDATED  = 'zycrypt_validated_at';
-const KEY_PLAN       = 'zycrypt_plan';
+const KEY_TOKEN     = 'zycrypt_token';
+const KEY_VALIDATED = 'zycrypt_validated_at';
+const KEY_PLAN      = 'zycrypt_plan';
 
 export function saveToken(token, plan) {
     try {
@@ -44,15 +44,11 @@ export function clearAll() {
     } catch (_) {}
 }
 
-/**
- * Cek apakah masih dalam grace period (server tidak terjangkau).
- * @param {number} graceHours
- */
 export function isInGrace(graceHours = 24) {
     const validatedAt = loadValidatedAt();
     if (! validatedAt) return false;
 
-    const ageMs    = Date.now() - validatedAt;
-    const graceMs  = graceHours * 60 * 60 * 1000;
+    const ageMs   = Date.now() - validatedAt;
+    const graceMs = graceHours * 60 * 60 * 1000;
     return ageMs < graceMs;
 }
