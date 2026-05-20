@@ -1,3 +1,4 @@
+import { inject }                  from 'vue';
 import { requestToken, invalidate } from './validator.js';
 import { setupInterceptor }        from './interceptor.js';
 import { loadPlan, isInGrace }     from './storage.js';
@@ -60,5 +61,5 @@ const ZyCrypt = {
 export default ZyCrypt;
 
 export function useZyCrypt() {
-    const { inject } = window.__VUE_INJECT__ || {};
+    return inject('zycrypt');
 }
