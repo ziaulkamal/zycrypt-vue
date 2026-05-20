@@ -14,7 +14,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
