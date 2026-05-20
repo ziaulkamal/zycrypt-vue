@@ -1,11 +1,59 @@
 {
-    "name": "zycrypt-vue",
-    "version": "1.0.0",
-    "description": "ZyCrypt Vue plugin for Laravel + Vue + Inertia.js license protection",
-    "main": "src/index.js",
-    "type": "module",
-    "keywords": ["zycrypt", "license", "vue", "laravel", "inertia"],
-    "author": "Ziaul Kamal",
-    "license": "UNLICENSED",
-    "private": false
+  "name": "@ziaulkamal/zycrypt-vue",
+  "version": "1.0.0",
+  "description": "ZyCrypt Vue plugin for Laravel + Vue + Inertia.js license protection",
+  "type": "module",
+
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+
+  "files": [
+    "dist"
+  ],
+
+  "scripts": {
+    "build": "vite build"
+  },
+
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vue": "^3.4.0"
+  },
+
+  "keywords": [
+    "zycrypt",
+    "license",
+    "vue",
+    "laravel",
+    "inertia"
+  ],
+
+  "author": "Ziaul Kamal",
+  "license": "MIT",
+
+  "private": false,
+
+  "publishConfig": {
+    "access": "public"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ziaulkamal/zycrypt-vue.git"
+  },
+
+  "homepage": "https://github.com/ziaulkamal/zycrypt-vue",
+
+  "bugs": {
+    "url": "https://github.com/ziaulkamal/zycrypt-vue/issues"
+  }
 }
